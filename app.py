@@ -17,6 +17,8 @@ def meteo():
         'forecast_days': '10',
         'timezone': 'Europe/London'
     }
+    params['windspeed_unit'] = 'kmh'
+    params['temperature_unit'] = 'celsius'
     output = requests.get(meteo_Api, params=params, verify=True)
     return output.json()
     
