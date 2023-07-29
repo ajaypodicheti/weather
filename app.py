@@ -20,5 +20,14 @@ def meteo():
     params['windspeed_unit'] = 'kmh'
     params['temperature_unit'] = 'celsius'
     output = requests.get(meteo_Api, params=params, verify=True)
-    return output.json()
+    weather=output.json()
+    # Get the wind direction from the current weather information
+    wind_direction = weather['current_weather']['winddirection']
+    
+    # Get the temperature for the specific date using the defined function
+    temperature_for_date = get_temperature_for_date(weather)
+
+    # Return the wind direction and temperature information
+    return f"Wind Direction: {wind_direction}, {temperature_for_date}"
+
     
