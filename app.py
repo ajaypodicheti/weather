@@ -11,8 +11,10 @@ def meteo():
         'latitude': '52.52',
         'longitude': '13.41',
         'daily': 'temperature_2m_min,temperature_2m_max,precipitation_sum',
+        'current_weather': 'True',
+        'temperature_unit': 'celsius',
         'timezone': 'Europe/London'
     }
-    output = requests.get(meteo_Api, params=params, verify=False)
+    output = requests.get(meteo_Api, params=params, verify=True)
     return output.json()
     
