@@ -3,6 +3,14 @@ from flask import Flask
 import requests
 
 app = Flask('Flask')
+def get_temperature_for_date(weather):
+    if 'daily' in weather and 'time' in weather['daily']:
+        dates = weather['daily']['time']
+        if '2023-07-30' in dates:
+            index = dates.index('2023-07-30')
+            temp_min = weather['daily']['temperature_2m_min'][index]
+            temp_max = weather['daily']['temperature_2m_max'][index]
+            return f"Temperature on 2023-07-30: Min = {temp_min}°C, Max = {temp_max}°C"
 
 @app.route("/")
 def meteo():
