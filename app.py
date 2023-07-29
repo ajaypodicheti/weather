@@ -13,6 +13,8 @@ def meteo():
         'daily': 'temperature_2m_min,temperature_2m_max,precipitation_sum',
         'current_weather': 'True',
         'temperature_unit': 'celsius',
+        'precipitation_unit': 'mm',
+        'forecast_days': '10',
         'timezone': 'Europe/London'
     }
     output = requests.get(meteo_Api, params=params, verify=True)
