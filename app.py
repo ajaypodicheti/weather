@@ -10,7 +10,8 @@ def meteo():
     params = {
         'latitude': '52.52',
         'longitude': '13.41',
-         'timezone': 'Europe/London'
+        'daily': 'temperature_2m_min,temperature_2m_max,precipitation_sum',
+        'timezone': 'Europe/London'
     }
     output = requests.get(meteo_Api, params=params, verify=False)
     return output.json()
