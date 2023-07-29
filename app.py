@@ -11,6 +11,10 @@ def get_temperature_for_date(weather):
             temp_min = weather['daily']['temperature_2m_min'][index]
             temp_max = weather['daily']['temperature_2m_max'][index]
             return f"Temperature on 2023-07-30: Min = {temp_min}°C, Max = {temp_max}°C"
+        else:
+            return "No data available for 2023-07-30."
+    else:
+        return "No daily data available."
 
 @app.route("/")
 def meteo():
