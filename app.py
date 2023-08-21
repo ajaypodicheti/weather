@@ -31,8 +31,23 @@ request.form.get("min_temp_checkbox")=="on"
 request.form.get("current_weather")=="on"
     forecast_days=request.form.get("forecast_days")
     time_zone=request.form.get("time-zone")
+    #Set API URL and parameters
     meteo_Api = "https://api.open-meteo.com/v1/forecast?"
-    params = {
+    daily_params = {
+    if max_temp_checkbox:
+        daily_params.append("temperature_2m_max")
+    if min_temp_checkbox:
+        daily_params.append("temperature_2m_min")
+    if precip_sum_checkbox:
+        daily_params.append("precipitation_sum")
+        params={
+        'latitude':latitude,
+        'longitude':longitude,
+        'daily':",",join(daily_params),
+        'current_weather':current_weather,
+        'timezone':time_zone,
+        'forecast_days':forecast_days
+        }
         'latitude': '52.52',
         'longitude': '13.41',
         'daily': 'temperature_2m_min,temperature_2m_max,precipitation_sum',
