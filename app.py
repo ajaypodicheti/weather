@@ -15,9 +15,22 @@ def get_temperature_for_date(weather):
             return "No data available for 2023-08-21."
     else:
         return "No daily data available."
-
-@app.route("/")
+#route for the root url
+@app.route("/",methods=['GET','POST'])
 def meteo():
+if request method=='POST':
+#Get user input data
+    latitude=request.form.get("latitude")
+    longitude=request.form.get("longitude")
+    location=request.form.get("location")
+    max_temp-checkbox=
+request.form.get("max_temp_checkbox")=="on"
+    min_temp-checkbox=
+request.form.get("min_temp_checkbox")=="on"
+    precip_sum-checkbox=
+request.form.get("current_weather")=="on"
+    forecast_days=request.form.get("forecast_days")
+    time_zone=request.form.get("time-zone")
     meteo_Api = "https://api.open-meteo.com/v1/forecast?"
     params = {
         'latitude': '52.52',
