@@ -1,4 +1,3 @@
-# save this as app.py
 from flask import Flask,render_template,request 
 import requests
 
@@ -9,7 +8,6 @@ def get_temperature_for_date(weather):
         if '2023-08-21' in dates:
             index = dates.index('2023-08-21')
             temp_min = weather['daily']['temperature_2m_min'][index]
-            temp_max = weather['daily']['temperature_2m_max'][index]
             return f"Temperature on 2023-08-21: Min = {temp_min}°C, Max = {temp_max}°C"
         else:
             return "No data available for 2023-08-21."
@@ -48,6 +46,7 @@ request.form.get("current_weather")=="on"
         'timezone':time_zone,
         'forecast_days':forecast_days
         }
+
         'latitude': '52.52',
         'longitude': '13.41',
         'daily': 'temperature_2m_min,temperature_2m_max,precipitation_sum',
