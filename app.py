@@ -33,6 +33,7 @@ def meteo():
         current_weather = request.form.get("current_weather") == "on"
         temperature_unit = request.form.get("temperature_unit")
         wind_speed_unit = request.form.get("wind_speed_unit")
+        precipitation_unit = request.form.get("precipitation_unit")
         forecast_days = request.form.get("forecast_days")
         time_zone = request.form.get("time_zone")
 
@@ -53,6 +54,7 @@ def meteo():
             'current_weather': current_weather,
             'temperature_unit': temperature_unit,
             'wind_speed_unit': wind_speed_unit,
+            'precipitation_unit': precipitation_unit,
             'timezone': time_zone,
             'forecast_days': forecast_days
         }
