@@ -17,7 +17,7 @@ def get_temperature_for_date(weather):
 #route for the root url
 @app.route("/",methods=['GET','POST'])
 def meteo():
-    if request method=='POST':
+    if request.method=='POST':
 #Get user input data
     latitude=request.form.get("latitude")
     longitude=request.form.get("longitude")
@@ -39,7 +39,7 @@ def meteo():
     params={
         'latitude':latitude,
         'longitude':longitude,
-        'daily':",",join(daily_params),
+        'daily':",".join(daily_params),
         'current_weather':current_weather,
         'timezone':time_zone,
         'forecast_days':forecast_days
