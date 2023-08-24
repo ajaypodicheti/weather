@@ -32,6 +32,7 @@ def meteo():
         precip_sum_checkbox = request.form.get("precip_sum_checkbox") == "on"
         current_weather = request.form.get("current_weather") == "on"
         temperature_unit = request.form.get("temperature_unit")
+        wind_speed_unit = request.form.get("wind_speed_unit")
         forecast_days = request.form.get("forecast_days")
         time_zone = request.form.get("time_zone")
 
@@ -51,6 +52,7 @@ def meteo():
             'daily': ",".join(daily_params),
             'current_weather': current_weather,
             'temperature_unit': temperature_unit,
+            'wind_speed_unit': wind_speed_unit,
             'timezone': time_zone,
             'forecast_days': forecast_days
         }
