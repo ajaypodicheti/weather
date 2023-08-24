@@ -36,7 +36,7 @@ if request method=='POST':
         daily_params.append("temperature_2m_min")
     if precip_sum_checkbox:
         daily_params.append("precipitation_sum")
-        
+
         params={
         'latitude':latitude,
         'longitude':longitude,
@@ -45,22 +45,10 @@ if request method=='POST':
         'timezone':time_zone,
         'forecast_days':forecast_days
         }
-
-        'latitude': '52.52',
-        'longitude': '13.41',
-        'daily': 'temperature_2m_min,temperature_2m_max,precipitation_sum',
-        'current_weather': 'True',
-        'temperature_unit': 'celsius',
-        'precipitation_unit': 'mm',
-        'forecast_days': '30',
-        'timezone': 'Europe/London'
-    }
-    params['windspeed_unit'] = 'kmh'
-    params['temperature_unit'] = 'celsius'
     output = requests.get(meteo_Api, params=params, verify=True)
     weather=output.json()
     # Get the wind direction from the current weather information
-    wind_direction = weather['current_weather']['winddirection']
+    wind_direction = weather.get('current_weather', {}).get('winddirection', 'N/A')
     
     # Get the temperature for the specific date using the defined function
     temperature_for_date = get_temperature_for_date(weather)
