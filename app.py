@@ -5,14 +5,13 @@ app = Flask(__name__)
 def get_temperature_for_date(weather):
     if 'daily' in weather and 'time' in weather['daily']:
         dates = weather['daily']['time']
-        if '2023-08-2' in dates:
-            index = dates.index('2023-08-21')
+        if '2023-08-30' in dates:
+            index = dates.index('2023-08-30')
             temp_min = weather['daily']['temperature_2m_min'][index]
-            temp_max=weather['daily']
-            ['temperature _2m_max'][index]
-            return f"Temperature on 2023-08-21: Min = {temp_min}°C, Max = {temp_max}°C"
+            temp_max=weather['daily']['temperature _2m_max'][index]
+            return f"Temperature on 2023-08-30: Min = {temp_min}°C, Max = {temp_max}°C"
         else:
-            return "No data available for 2023-08-21."
+            return "No data available for 2023-08-30."
     else:
         return "No daily data available."
 #route for the root url
@@ -23,23 +22,21 @@ if request method=='POST':
     latitude=request.form.get("latitude")
     longitude=request.form.get("longitude")
     location=request.form.get("location")
-    max_temp-checkbox=
-request.form.get("max_temp_checkbox")=="on"
-    min_temp-checkbox=
-request.form.get("min_temp_checkbox")=="on"
-    precip_sum-checkbox=
-request.form.get("current_weather")=="on"
+    max_temp-checkbox=request.form.get("max_temp_checkbox")=="on"
+    min_temp-checkbox=request.form.get("min_temp_checkbox")=="on"
+    precip_sum-checkbox=request.form.get("current_weather")=="on"
     forecast_days=request.form.get("forecast_days")
     time_zone=request.form.get("time-zone")
     #Set API URL and parameters
     meteo_Api = "https://api.open-meteo.com/v1/forecast?"
-    daily_params = {
+    daily_params = []
     if max_temp_checkbox:
         daily_params.append("temperature_2m_max")
     if min_temp_checkbox:
         daily_params.append("temperature_2m_min")
     if precip_sum_checkbox:
         daily_params.append("precipitation_sum")
+        
         params={
         'latitude':latitude,
         'longitude':longitude,
