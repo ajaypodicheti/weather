@@ -58,7 +58,9 @@ def meteo():
   # Render the template initially
 return render_template('index.html')
 
-
+# Run the application if executed as the main script
+if __name__ == "__main__":
+    app.run(debug=True)
 
    
     
