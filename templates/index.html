@@ -66,5 +66,15 @@
 
         </form>
     </div>
+
+    <div class="weather-results">
+        {% if wind_direction %}
+        <p>Wind Direction: {{ wind_direction }}</p>  <!-- Display wind direction if available -->
+        {% endif %}
+        {% if temperature_for_date %}
+        <p>{{ temperature_for_date }}</p>  <!-- Display temperature for a specific date if available -->
+        {% endif %}
+    </div>
     
 </body>
+</html>
