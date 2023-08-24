@@ -53,7 +53,8 @@ if request method=='POST':
     # Get the temperature for the specific date using the defined function
     temperature_for_date = get_temperature_for_date(weather)
 
-    # Return the wind direction and temperature information
-    return f"Wind Direction: {wind_direction}, {temperature_for_date}"
+      # Render the template with retrieved data
+    return render_template('index.html', wind_direction=wind_direction, temperature_for_date=temperature_for_date)
 
+   
     
