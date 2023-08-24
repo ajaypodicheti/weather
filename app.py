@@ -1,11 +1,11 @@
 from flask import Flask,render_template,request 
 import requests
 
-app = Flask('Flask')
+app = Flask(__name__)
 def get_temperature_for_date(weather):
     if 'daily' in weather and 'time' in weather['daily']:
         dates = weather['daily']['time']
-        if '2023-08-21' in dates:
+        if '2023-08-2' in dates:
             index = dates.index('2023-08-21')
             temp_min = weather['daily']['temperature_2m_min'][index]
             temp_max=weather['daily']
@@ -55,7 +55,7 @@ request.form.get("current_weather")=="on"
         'current_weather': 'True',
         'temperature_unit': 'celsius',
         'precipitation_unit': 'mm',
-        'forecast_days': '10',
+        'forecast_days': '30',
         'timezone': 'Europe/London'
     }
     params['windspeed_unit'] = 'kmh'
