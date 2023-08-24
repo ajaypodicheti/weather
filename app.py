@@ -17,7 +17,7 @@ def get_temperature_for_date(weather):
 #route for the root url
 @app.route("/",methods=['GET','POST'])
 def meteo():
-if request method=='POST':
+    if request method=='POST':
 #Get user input data
     latitude=request.form.get("latitude")
     longitude=request.form.get("longitude")
@@ -36,8 +36,7 @@ if request method=='POST':
         daily_params.append("temperature_2m_min")
     if precip_sum_checkbox:
         daily_params.append("precipitation_sum")
-
-        params={
+    params={
         'latitude':latitude,
         'longitude':longitude,
         'daily':",",join(daily_params),
@@ -45,6 +44,7 @@ if request method=='POST':
         'timezone':time_zone,
         'forecast_days':forecast_days
         }
+    
     output = requests.get(meteo_Api, params=params, verify=True)
     weather=output.json()
     # Get the wind direction from the current weather information
@@ -55,6 +55,10 @@ if request method=='POST':
 
       # Render the template with retrieved data
     return render_template('index.html', wind_direction=wind_direction, temperature_for_date=temperature_for_date)
+  # Render the template initially
+return render_template('index.html')
+
+
 
    
     
