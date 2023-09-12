@@ -9,13 +9,13 @@ app = Flask(__name__)
 def get_temperature_for_date(weather):
     if 'daily' in weather and 'time' in weather['daily']:
         dates = weather['daily']['time']
-        if '2023-08-30' in dates:
-            index = dates.index('2023-08-30')
+        if '2023-09-15' in dates:
+            index = dates.index('2023-09-15')
             temp_min = weather['daily']['temperature_2m_min'][index]
             temp_max = weather['daily']['temperature_2m_max'][index]
-            return f"Temperature on 2023-08-30: Min = {temp_min}°C, Max = {temp_max}°C"
+            return f"Temperature on 2023-09-15: Min = {temp_min}°C, Max = {temp_max}°C"
         else:
-            return "No data available for 2023-08-30."
+            return "No data available for 2023-09-15."
     else:
         return "No daily data available."
 
